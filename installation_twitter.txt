@@ -1,0 +1,89 @@
+Installation de Python-Twitter
+==============================
+
+1) Installation de "simplejson" :
+
+[~/DEV/PYTHON] ➔ wget https://pypi.python.org/packages/source/s/simplejson/simplejson-3.6.5.tar.gz
+[~/DEV/PYTHON] ➔ tar xvfz simplejson-3.6.5.tar.gz 
+[~/DEV/PYTHON] ➔ cd simplejson-3.6.5/
+[~/DEV/PYTHON/simplejson-3.6.5] ➔ sudo python ./setup.py install
+[~/DEV/PYTHON/simplejson-3.6.5] ➔ cd ..
+
+https://pypi.python.org/pypi/simplejson
+
+2) Installatin de "httplib2" :
+
+[~/DEV/PYTHON] ➔ git clone https://github.com/jcgregorio/httplib2.git
+[~/DEV/PYTHON] ➔ cd httplib2/
+[~/DEV/PYTHON/httplib2 (master)] ➔ sudo python ./setup.py install
+[~/DEV/PYTHON/httplib2 (master)] ➔ cd ..
+
+https://github.com/jcgregorio/httplib2
+
+3) Installation de "python-oauth2" :
+
+[~/DEV/PYTHON] ➔ git clone https://github.com/simplegeo/python-oauth2.git
+[~/DEV/PYTHON] ➔ cd python-oauth2/
+[~/DEV/PYTHON/python-oauth2 (master)] ➔ sudo python ./setup.py install
+[~/DEV/PYTHON/python-oauth2 (master)⚡] ➔ cd ..
+
+https://github.com/simplegeo/python-oauth2
+
+4) Installation de "python-twitter" :
+
+[~/DEV/PYTHON] ➔ git clone https://github.com/bear/python-twitter.git
+[~/DEV/PYTHON] ➔ cd python-twitter/
+[~/DEV/PYTHON/python-twitter (master)] ➔ sudo python setup.py install
+
+5) Génération des "consumer key/secret" et des "access key/secret" : 
+
+https://apps.twitter.com/app/new
+
+6) Exemple :
+
+[~/DEV/PYTHON/python-twitter (master)] ➔ cd ..
+
+Ouvrir : 
+
+getLastTweet.py
+
+Ajouter : 
+
+#!/usr/bin/env python
+
+import os
+import sys
+import twitter
+
+consumer_key = ''
+consumer_secret = ''
+access_token_key = ''
+access_token_secret = ''
+
+api = twitter.Api(
+    consumer_key=consumer_key,
+    consumer_secret=consumer_secret,
+    access_token_key=access_token_key,
+    access_token_secret=access_token_secret
+)
+ 
+timeline = api.GetUserTimeline(screen_name='Nekrofage666', exclude_replies=True)
+
+print timeline[0].text
+Lancer le script :
+
+[~/DEV/PYTHON] ➔ ./getLastTweet.py 
+
+7) Erreurs possibles : 
+
+Erreur : 
+
+twitter.error.TwitterError: [{u'message': u'Could not authenticate you', u'code': 32}]
+
+Solution : 
+
+Regénérer les clés.
+
+8) Liens : 
+
+http://nerdy.dj.uninen.net/2014/09/quick-guide-to-using-python-twitter/
