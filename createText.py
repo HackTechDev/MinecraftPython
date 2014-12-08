@@ -1,6 +1,6 @@
 import mcpi.minecraft as minecraft
 import mcpi.block as block
-
+import time
 
 #Letters used in the program, hashes are turned into blocks
 letters = {"a":
@@ -400,7 +400,7 @@ class MinecraftText:
                               block.AIR.id)
 
 
-class MinecraftTwitterStreamClient:
+class MinecraftWriteStreamClient:
     def __init__(self, textBlock):
         #Connect to minecraft by creating the minecraft object
         # - minecraft needs to be running and in a game
@@ -416,8 +416,10 @@ class MinecraftTwitterStreamClient:
 if __name__ == "__main__":
 
     #Create minecraft twitter 
+    time.sleep(5)
     textBlock = "Minecraft Python"
-    mcTwitter = MinecraftTwitterStreamClient(textBlock)
+    mcTwitter = MinecraftWriteStreamClient(textBlock)
 
-
-
+    time.sleep(10)
+    textBlock = "                "
+    mcTwitter = MinecraftWriteStreamClient(textBlock)
