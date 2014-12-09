@@ -13,6 +13,6 @@ while True:
 
     time.sleep(2)
     
-    if x >= 343.300 and y <= 344.700 and z <= -301.300 and z >= -302.700 and y == 4:
+    if x >= 343.300 and x <= 344.700 and z <= -301.300 and z >= -302.700 and y == 4:
         print "Active action"
         mc.postToChat("Active action")
